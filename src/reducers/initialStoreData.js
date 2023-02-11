@@ -3,8 +3,7 @@ const initialStoredData = [];
 const dataStorage = (state = initialStoredData, action) => {
     switch (action.type) {
         case "STOREDATA":
-            const data = action.payload
-            console.log("payload...",data);
+            const data = action.payload;
             return (
                 [...state, data]
             )

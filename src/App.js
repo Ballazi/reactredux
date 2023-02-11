@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import './App.css';
 import { increment, decrement, storeData, updateStoreData } from './action/action';
@@ -41,9 +41,9 @@ function App() {
 
   const updateData = () => {
     const obj = {
-      id:toogle,
-      name:changedName,
-      address:changedAddress
+      id: toogle,
+      name: changedName,
+      address: changedAddress
     }
     dispatch(updateStoreData(obj))
     setToogle("");
@@ -55,11 +55,9 @@ function App() {
 
   return (
     <div className="App">
-      <marquee>
-        <h1>
-          Redux best examples
-        </h1>
-      </marquee>
+      <h1>
+        Redux best examples
+      </h1>
       <div style={{ margin: "10px", padding: "10px", border: "1px solid green" }}>
         <button style={{ padding: "10px" }} onClick={() => dispatch(decrement())}>-</button>
         <span style={{ padding: "10px" }}>{data}</span>
@@ -72,7 +70,7 @@ function App() {
       </div>
       <div style={{ margin: "10px", border: "1px solid green", height: "400px", overflowY: "scroll" }}>
         {custData.length === 0 ? (<div>Data not found</div>) :
-          <table border="1" align="center" cellpadding="6" cellspacing="0" bgcolor="lightgray" style={{ width: "100%" }} >
+          <table border="1" align="center" cellPadding="6" cellSpacing="0" bgcolor="lightgray" style={{ width: "100%" }} >
             <thead>
               <tr>
                 <th>SI NO.</th>
@@ -89,7 +87,7 @@ function App() {
                       <td>{ind + 1}</td>
                       <td>{ele.name}</td>
                       <td>{ele.address}</td>
-                      <td style={{cursor: "pointer"}} onClick={() => editClicked(ele)}>Edit</td>
+                      <td style={{ cursor: "pointer" }} onClick={() => editClicked(ele)}>Edit</td>
                     </tr>
                   ) :
                     (
@@ -99,7 +97,7 @@ function App() {
                         <td>
                           <input value={changedAddress} onChange={e => setChangedAddress(e.target.value)} id="input-2" />
                         </td>
-                        <td style={{cursor: "pointer"}} onClick={() => updateData()}>Update</td>
+                        <td style={{ cursor: "pointer" }} onClick={() => updateData()}>Update</td>
                       </tr>
                     )
                 })
